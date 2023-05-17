@@ -1,0 +1,190 @@
+1. Input a String S, and check its length and if the length is greater than 4, truncate the input String and output the result - Input: Ice Output: Ice
+Input:Icecream Output:Icec…
+
+function truncateString(s) {
+  if (s.length > 4) {
+    return s.substring(0, 4) + '...';
+  } else {
+    return s;
+  }
+}
+
+console.log(truncateString("IceCream");
+
+2. Input a String S with multiple words, and remove whitespaces and output the result - Input: “Hii Boy” Output: “HiiBoy”
+
+function removeWhiteSpace(s) {
+  return s.replace(/\s/g, '');
+}
+
+console.log(removeWhiteSpace("Nagesh Rajanna Rajarapu"));
+
+3. Input a String S with two words, and replace first word with second word and display the result - Input: “Hii Boy” Output: “Boy Hii”
+
+function replaceFirstWord(s) {
+  const words = s.split(' '); 
+  if (words.length === 2) {
+    return words[1] + ' ' + words[0];
+  } else {
+    return s;
+  }
+}
+
+console.log(replaceFirstWord("Nagesh Rajarapu"));
+
+4. Input a String S with a word, and replace character “a” with “x” and display the result -
+Input: “apple” Output: “xpple”
+
+function replaceCharacter(s) {
+  return s.replace(/a/g, 'x');
+}
+
+console.log(replaceCharacter("apple"));
+
+5. What string method can be used to convert string into array ?
+
+split() method:
+==============
+It can be used to convert a string into an array of substrings.
+
+The split() method divides a string into an array of substrings based on a specified delimiter and returns the new array. The delimiter can be a character, a string, or a regular expression pattern. When the split() method is called on a string, it breaks the string into substrings wherever the delimiter is found and returns an array of those substrings.
+
+Ex:1
+const str = "Hello, World!";
+const arr = str.split(',');
+console.log(arr); 
+// Output: ["Hello", " World!"]
+
+Ex:2
+const str = "Apple, Banana, Cherry";
+const arr = str.split(', '); // Split the string at the comma followed by a space delimiter
+console.log(arr); // Output: ["Apple", "Banana", "Cherry"]
+
+By using the split() method, we can easily convert a string into an array and perform various operations on the array elements.
+
+6. What string method can be used to check the occurrence of a specified text in a string?
+
+The string method that can be used to check the occurrence of a specified text in a string is the includes() method.
+The includes() method checks if a string contains a specific substring or text and returns true if it does, and false otherwise. It performs a case-sensitive search by default.
+
+Ex: 
+const str = "Hello, World!";
+console.log(str.includes("Hello")); // Output: true
+console.log(str.includes("foo")); // Output: false
+
+The includes() method can also take an optional second parameter, which specifies the index at which the search should start within the string. 
+
+Ex:
+const str = "Hello, World!";
+console.log(str.includes("World", 7)); // Output: true
+console.log(str.includes("World", 10)); // Output: false
+
+By using the includes() method, you can easily check if a specific text or substring exists within a string.
+
+7. How can you break a string to a newline in Javascript ?
+
+To break a string into multiple lines in JavaScript, you can use the newline character \n to indicate the line breaks. 
+Ex:
+const str = "This is a\nmultiline\nstring.";
+console.log(str);
+
+In this example, the string str contains newline characters (\n) at the desired positions where the line breaks should occur. When the string is printed to the console or rendered in HTML, the newline characters are interpreted as line breaks, resulting in the string being displayed with multiple lines.
+
+We can also use template literals (backticks) to create multiline strings in JavaScript.
+Ex:
+const str = `This is a
+multiline
+string.`;
+console.log(str);
+
+Using template literals allows you to write multiline strings more conveniently, as you can directly include line breaks within the backtick-delimited string.
+But if you want to display the string in HTML, you might need to use additional formatting or styling <br> tags or CSS properties like white-space: pre to ensure that the line breaks are visually represented as expected in the rendered HTML document.
+
+8. Write a Javascript function to test whether the first character of a string is lowercase.
+
+function isFirstCharLowercase(str) {
+  if (str.length === 0) {
+    return false; //Return false for an empty string
+  }
+  
+  const firstChar = str.charAt(0);
+  return firstChar === firstChar.toLowerCase();
+}
+
+Ex:
+console.log(isFirstCharLowercase("hello")); //true
+console.log(isFirstCharLowercase("World")); //false
+console.log(isFirstCharLowercase("")); //false
+
+9. Give a correct verdict to users input if he enters "yes", "YES","Yes" ,etc (any combination) using string methods.
+How will you handle that ?
+
+function getVerdict(userInput) {
+  const standardizedInput = userInput.toLowerCase(); // Convert the input to lowercase
+  
+  if (standardizedInput === 'yes') {
+    return 'Correct verdict: Affirmative!';
+  } else {
+    return 'Correct verdict: Not affirmative!';
+  }
+}
+
+Ex:
+console.log(getVerdict('yes')); // Output: Correct verdict: Affirmative!
+console.log(getVerdict('YES')); // Output: Correct verdict: Affirmative!
+console.log(getVerdict('Yes')); // Output: Correct verdict: Affirmative!
+console.log(getVerdict('no')); // Output: Correct verdict: Not affirmative!
+
+10. Given a String S, achieve following tasks
+a) Convert the String into upper case.
+b) Convert only the first character to uppercase.
+c) Convert the String into lower case.
+d) Break the string into two halves and swap them.
+e) Count the repeating characters.
+f) Reverse the string
+
+const S = "Hello World";
+
+// a) Convert the String into upper case.
+const uppercaseString = S.toUpperCase();
+console.log(uppercaseString); 
+// Output: "HELLO WORLD"
+
+// b) Convert only the first character to uppercase.
+const firstCharUppercase = S.charAt(0).toUpperCase() + S.slice(1);
+console.log(firstCharUppercase); 
+// Output: "Hello World"
+
+// c) Convert the String into lower case.
+const lowercaseString = S.toLowerCase();
+console.log(lowercaseString); 
+// Output: "hello world"
+
+// d) Break the string into two halves and swap them.
+const halfLength = Math.floor(S.length / 2);
+const firstHalf = S.slice(0, halfLength);
+const secondHalf = S.slice(halfLength);
+const swappedString = secondHalf +" "+ firstHalf;
+console.log(swappedString); // Output: "WorldHello "
+
+// e) Count the repeating characters.
+const repeatingCharacters = {};
+for (let i = 0; i < S.length; i++) {
+  const char = S.charAt(i);
+  repeatingCharacters[char] = repeatingCharacters[char] ? repeatingCharacters[char] + 1 : 1;
+}
+console.log(repeatingCharacters); 
+// Output: { H: 1, e: 1, l: 3, o: 2, ' ': 1, W: 1, r: 1, d: 1 }
+
+// f) Reverse the string.
+const reversedString = S.split('').reverse().join('');
+console.log(reversedString); // Output: "dlroW olleH"
+
+// f) Reverse the string using a for loop
+let reversedString = "";
+for (let i = S.length - 1; i >= 0; i--) {
+  reversedString += S.charAt(i);
+}
+console.log(reversedString); 
+// Output: "dlroW olleH"
+
